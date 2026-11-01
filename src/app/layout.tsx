@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     description,
     images: ["/opengraph-image.png"],
   },
+  verification: {
+    google: "6msekpQJEiSPgrObraIptZSNWM7Ny1L4hjxuactljfs",
+  },
   robots: { index: true, follow: true },
 };
 
