@@ -3,7 +3,11 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
 
-export const metadata: Metadata = { title: "Terms of use" };
+export const metadata: Metadata = {
+  title: "Terms of use",
+  description: "Read the Scheme Saathi terms of use and eligibility information disclaimer.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function Terms() {
   return (

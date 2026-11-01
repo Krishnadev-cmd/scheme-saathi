@@ -19,6 +19,9 @@ export default function SiteFooter() {
               <Link href="/#faq">FAQ</Link>
             </li>
             <li>
+              <Link href="/resources/official-sources">Official sources</Link>
+            </li>
+            <li>
               <Link href="/privacy">Privacy policy</Link>
             </li>
             <li>

@@ -13,10 +13,23 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL(env().baseUrl),
+  applicationName: "Scheme Saathi",
+  authors: [{ name: "Scheme Saathi" }],
+  creator: "Scheme Saathi",
+  publisher: "Scheme Saathi",
   title: { default: "Scheme Saathi · Find the government schemes you can claim", template: "%s · Scheme Saathi" },
   description,
-  openGraph: { title: "Scheme Saathi", description, type: "website", locale: "en_IN" },
+  keywords: [
+    "government schemes India",
+    "government benefits",
+    "scheme eligibility",
+    "Indian welfare schemes",
+    "सरकारी योजनाएं",
+    "സർക്കാർ പദ്ധതികൾ",
+  ],
+  openGraph: { title: "Scheme Saathi", description, type: "website", locale: "en_IN", siteName: "Scheme Saathi" },
   twitter: { card: "summary_large_image", title: "Scheme Saathi", description },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = { themeColor: "#2aabee" };

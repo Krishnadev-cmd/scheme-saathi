@@ -10,6 +10,7 @@ import "./try.css";
 export const metadata: Metadata = {
   title: "Live demo",
   description: "Try the Scheme Saathi conversation in your browser. It is the same flow as on Telegram and WhatsApp.",
+  alternates: { canonical: "/try" },
 };
 
 const TIPS = [

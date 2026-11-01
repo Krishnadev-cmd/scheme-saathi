@@ -15,21 +15,28 @@ import {
   WarningCircle,
   WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import HeroChat from "@/components/HeroChat";
 import Reveal from "@/components/Reveal";
-import SchemeExplorer, { type SchemeCard } from "@/components/SchemeExplorer";
+import type { SchemeCard } from "@/components/SchemeExplorer";
 import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
 import TaglineReveal from "@/components/TaglineReveal";
+import { env } from "@/lib/env";
 import { LINKS, PRIMARY } from "@/lib/links";
 import { DEFAULT_SOURCES } from "@/lib/pipeline/sources";
 import { seedSchemes } from "@/lib/schemes/seed";
 import type { Scheme } from "@/lib/types";
 import "./home.css";
 
+const SchemeExplorer = dynamic(() => import("@/components/SchemeExplorer"));
+
 export const metadata: Metadata = {
   title: { absolute: "Scheme Saathi · Find the government schemes you can claim" },
+  description:
+    "Find Indian government schemes you may be eligible for. Scheme Saathi matches you to central and state benefits in English, Hindi and Malayalam.",
+  alternates: { canonical: "/" },
 };
 
 function tagsFor(s: Scheme): string[] {
@@ -188,8 +195,31 @@ function ChannelStrip() {
 }
 
 export default function Home() {
+  const baseUrl = env().baseUrl;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "Scheme Saathi",
+        url: baseUrl,
+        description:
+          "A multilingual service that helps people find Indian government schemes and official application links.",
+      },
+      {
+        "@type": "WebSite",
+        name: "Scheme Saathi",
+        url: baseUrl,
+        description:
+          "Find Indian government schemes you may be eligible for in English, Hindi and Malayalam.",
+        inLanguage: ["en-IN", "hi-IN", "ml-IN"],
+      },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <SiteNav />
       <main id="main">
         {/* Hero */}

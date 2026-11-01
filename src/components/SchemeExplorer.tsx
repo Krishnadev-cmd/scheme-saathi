@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "@phosphor-icons/react";
+import Link from "next/link";
 import { useState } from "react";
 
 export interface SchemeCard {
@@ -50,7 +51,9 @@ export default function SchemeExplorer({ schemes }: { schemes: SchemeCard[] }) {
                 <ArrowUpRight size={18} weight="bold" />
               </a>
             </div>
-            <h3>{s.name}</h3>
+            <h3>
+              <Link href={`/schemes/${s.id}`}>{s.name}</Link>
+            </h3>
             <p>{s.benefit}</p>
             <span className="ministry">{s.ministry}</span>
           </li>

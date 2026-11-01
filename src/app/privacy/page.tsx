@@ -3,7 +3,11 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
 
-export const metadata: Metadata = { title: "Privacy policy" };
+export const metadata: Metadata = {
+  title: "Privacy policy",
+  description: "Read how Scheme Saathi collects, uses and deletes chat and eligibility information.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function Privacy() {
   return (
