@@ -27,8 +27,27 @@ export const metadata: Metadata = {
     "सरकारी योजनाएं",
     "സർക്കാർ പദ്ധതികൾ",
   ],
-  openGraph: { title: "Scheme Saathi", description, type: "website", locale: "en_IN", siteName: "Scheme Saathi" },
-  twitter: { card: "summary_large_image", title: "Scheme Saathi", description },
+  openGraph: {
+    title: "Scheme Saathi",
+    description,
+    type: "website",
+    locale: "en_IN",
+    siteName: "Scheme Saathi",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1366,
+        height: 768,
+        alt: "Scheme Saathi - Find Indian government schemes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scheme Saathi",
+    description,
+    images: ["/opengraph-image.png"],
+  },
   robots: { index: true, follow: true },
 };
 
