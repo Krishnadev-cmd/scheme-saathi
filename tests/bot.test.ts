@@ -56,7 +56,8 @@ test("full Malayalam conversation for a Kerala farmer", async () => {
 test("Hindi flow skips the land question for non-farmers", async () => {
   const id = "test-student-01";
   await say(id, "start");
-  await say(id, "हिन्दी", "hi");
+  const consent = await say(id, "hi", "hi"); // Telegram callback payload
+  assert.deepEqual(consent[0].options?.map((o) => o.id), ["consent:yes", "consent:no"]);
   await say(id, "मैं सहमत हूँ", "consent:yes");
   await say(id, "मेरी उम्र 22 साल है");
   await say(id, "महिला");

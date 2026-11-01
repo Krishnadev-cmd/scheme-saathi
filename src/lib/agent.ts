@@ -352,7 +352,7 @@ async function route(user: User, input: Incoming): Promise<OutMessage[]> {
   // Language selection
   if (user.step === "language") {
     const lang = await resolveChoice(input, LANGUAGE_OPTIONS, "Which language do you prefer?");
-    if (!lang || cmd === "start") return [ask("language", L)];
+    if (!lang || (cmd === "start" && !input.optionId)) return [ask("language", L)];
     user.lang = lang as Lang;
     if (!user.consentAt) {
       user.step = "consent";
